@@ -18,7 +18,6 @@ end
 
 puts full_name("MATHEUS", "PENCHEL")
 
-
 def bigger_number(x, y)
   if x > y
     return x
