@@ -1,25 +1,26 @@
 require 'csv'
 require_relative '../models/employee'
+require_relative 'base_repository'
 
-class EmployeeRepository
+class EmployeeRepository < BaseRepository
 
-  def initialize(csv_file_path)
-    @employees = []
-    @csv_file_path = csv_file_path
-    load_csv
-  end
+  # For this repo, you could choose if it would inherit from the
+  # BaseRepository or not, since there's no add or save methods for
+  # this class.
+
+  # If you want it to inherit from the BaseRepo, but don't want
+  # the add method to exist, you could also do: undef_method :add
+
+  # This way you would UNDEFINE the add method >:)~~~
 
   def find_by_username(username)
-    @employees.find { |employee| employee.username == username }
+    @elements.find { |employee| employee.username == username }
   end
 
-  private
-  def load_csv
-    csv_options = { headers: :first_row, header_converters: :symbol }
-    CSV.foreach(@csv_file_path, csv_options) do |row|
-      row[:id] = row[:id].to_i
-      @employees << Employee.new(row)
-    end
+  def build_element(row)
+    row[:id] = row[:id].to_i
+
+    Employee.new(row)
   end
 
 end

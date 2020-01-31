@@ -1,17 +1,18 @@
 class Router
 
-  def initialize(meals_controller, customers_controller, sessions_controller)
+  def initialize(meals_controller, customers_controller, sessions_controller, orders_controller)
     @running = true
     @meals_controller = meals_controller
     @customers_controller = customers_controller
     @sessions_controller = sessions_controller
+    @orders_controller = orders_controller
   end
 
   def run
-    employee = @sessions_controller.sign_in
+    @current_user = @sessions_controller.sign_in
 
     while @running
-      if employee.manager?
+      if @current_user.manager?
         print_manager_actions
         user_input = gets.chomp
         route_manager_to(user_input)
@@ -33,6 +34,8 @@ class Router
     puts "2 - Add a meal"
     puts "3 - List customers"
     puts "4 - Add a customer"
+    puts "5 - List undelivered orders"
+    puts "6 - Add an order"
     puts "8 - Sign out"
     puts "9 - Exit"
     puts "------------------"
@@ -60,6 +63,10 @@ class Router
       @customers_controller.list_customers
     when "4"
       @customers_controller.add_a_customer
+    when "5"
+      @orders_controller.list_undelivered_orders(@current_user)
+    when "6"
+      @orders_controller.add_an_order
     when "8"
       self.run
     when "9"
@@ -72,9 +79,9 @@ class Router
   def route_delivery_guy_to(user_input)
     case user_input
     when "1"
-      # TO-DO: List undelivered orders
+      @orders_controller.list_undelivered_orders(@current_user)
     when "2"
-      # TO-DO: Mark an order as delivered
+      @orders_controller.mark_an_order_as_delivered(@current_user)
     when "8"
       self.run
     when "9"

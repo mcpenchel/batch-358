@@ -9,4 +9,15 @@ class Meal
     @price = attributes[:price]
   end
 
+  def self.headers
+    ['id', 'name', 'price']
+  end
+
+  def to_csv
+    [@id, @name, @price]
+  end
+
 end
+
+
+# Meal.headers

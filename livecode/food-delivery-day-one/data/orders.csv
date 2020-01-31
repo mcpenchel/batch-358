@@ -1,0 +1,5 @@
+"id","delivered","meal_id","employee_id","customer_id"
+"1","true","5","2","3"
+"2","true","3","2","2"
+"3","false","3","2","2"
+"4","false","2","2","1"
