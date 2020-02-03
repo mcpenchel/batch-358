@@ -1,0 +1,9 @@
+<h1>Welcome to the restaurants of evil!</h1>
+<h3>Beware with the following...</h3>
+
+<% "Not printing" %>
+<%= "Printing" %>
+
+<% @restaurants.each do |restaurant| %>
+  <p><a href="/restaurant/<%= restaurant.id %>"><%= restaurant.name %></a></p>
+<% end %>
