@@ -1,4 +1,4 @@
-If you're here, it means you're not feeling very comfortable with ruby and/or databases. Don't feel bad about it, that is alright. It doesn't mean that you're slow or that programming is not for you, it just means that your learning path should be different.
+If you're here, it means you're not feeling very comfortable with ruby and/or databases. Don't feel bad about it, that is alright. It doesn't mean that you're slow or that programming is not for you, it just means that your learning path is different.
 
 Your batch, the 358, is my 12th batch so far. I had some students before who were completely lost, who spend two weekends practicing stuff and then became extremely confident and comfortable with ruby. And other pretty lost students who, after their batch, spent months studying and then opened their own business - programming everything in them - and became quite rich.
 
