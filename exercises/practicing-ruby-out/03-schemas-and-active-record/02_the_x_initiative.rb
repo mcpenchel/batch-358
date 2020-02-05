@@ -18,14 +18,19 @@
 #### MIGRATIONS ####
 # 1 ) Migration files should be inside db/migrate/
 # 2 ) It should be one Migration for each table
-# 3 ) The order at which you create the migrations matter!!! Always create the
+# 3 ) Inside the migration, the name of the table should be pluralized.
+# So, for the class XMan, the name of the table is x_men
+# and for the class Emergency, tha name of the table is emergencies.
+# Don't worry, ActiveRecord is pretty smart, it knows how to pluralize stuff correctly :)
+#
+# 4 ) The order at which you create the migrations matter!!! Always create the
 # independent tables first, and after that you can create the tables which holds
 # foreign_keys
-# 4 ) The order of the migrations is defined by the TIMESTAMP at the beginning of
+# 5 ) The order of the migrations is defined by the TIMESTAMP at the beginning of
 # their names.
-# 5 ) Go back to ActiveRecord Basics lecture and see how to write the code inside
+# 6 ) Go back to ActiveRecord Basics lecture and see how to write the code inside
 # every migration, and how to actually create migrations.
-# 6 ) To execute the ruby code inside your migration files, run on the terminal
+# 7 ) To execute the ruby code inside your migration files, run on the terminal
 # the following command: rake db:migrate
 #
 #
